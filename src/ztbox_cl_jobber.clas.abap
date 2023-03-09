@@ -169,11 +169,10 @@ CLASS ZTBOX_CL_JOBBER IMPLEMENTATION.
 
     ELSE.
 
-      MESSAGE ID sy-msgid TYPE sy-msgty NUMBER sy-msgno WITH sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4 INTO DATA(lv_err).
-      INSERT lv_err INTO TABLE _errors.
+      MESSAGE ID sy-msgid TYPE sy-msgty NUMBER sy-msgno WITH sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4 INTO DATA(err).
+      INSERT err INTO TABLE _errors.
 
     ENDIF.
-
 
   ENDMETHOD.
 ENDCLASS.
