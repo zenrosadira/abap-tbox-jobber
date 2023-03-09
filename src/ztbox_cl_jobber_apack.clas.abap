@@ -21,7 +21,7 @@ CLASS ZTBOX_CL_JOBBER_APACK IMPLEMENTATION.
 
     zif_apack_manifest~descriptor = VALUE #(
       group_id    = 'ztbox'
-      artifact_id = 'abap-tbox-lockwaiter'
+      artifact_id = 'abap-tbox-jobber'
       version     = '0.1'
       git_url     = 'https://github.com/zenrosadira/abap-tbox-jobber.git' ).
 
