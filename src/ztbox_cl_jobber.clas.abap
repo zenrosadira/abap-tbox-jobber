@@ -65,8 +65,8 @@ CLASS ZTBOX_CL_JOBBER IMPLEMENTATION.
           _add_error( ).
         ENDIF.
 
-      CATCH cx_root INTO DATA(lx_root).
-        _add_error( lx_root->get_text( ) ).
+      CATCH cx_root INTO DATA(x_root).
+        _add_error( x_root->get_text( ) ).
 
     ENDTRY.
 
@@ -105,8 +105,8 @@ CLASS ZTBOX_CL_JOBBER IMPLEMENTATION.
           _add_error( ).
         ENDIF.
 
-      CATCH cx_root INTO DATA(lx_root).
-        _add_error( lx_root->get_text( ) ).
+      CATCH cx_root INTO DATA(x_root).
+        _add_error( x_root->get_text( ) ).
 
     ENDTRY.
 
@@ -124,7 +124,7 @@ CLASS ZTBOX_CL_JOBBER IMPLEMENTATION.
 
     open( ).
 
-    submit( CONV sy-repid( i_program ) ).
+    submit( CONV #( i_program ) ).
 
     close( ).
 
@@ -153,8 +153,8 @@ CLASS ZTBOX_CL_JOBBER IMPLEMENTATION.
 
         ENDIF.
 
-      CATCH cx_root INTO DATA(lx_root).
-        _add_error( lx_root->get_text( ) ).
+      CATCH cx_root INTO DATA(x_root).
+        _add_error( x_root->get_text( ) ).
 
     ENDTRY.
 
