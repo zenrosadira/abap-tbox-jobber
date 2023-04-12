@@ -1,40 +1,42 @@
-class ZTBOX_CL_JOBBER definition
-  public
-  final
-  create public .
+CLASS ztbox_cl_jobber DEFINITION
+  PUBLIC
+  FINAL
+  CREATE PUBLIC .
 
-public section.
+  PUBLIC SECTION.
 
-  interfaces IF_SERIALIZABLE_OBJECT .
+    INTERFACES if_serializable_object .
 
-  methods START_JOB
-    importing
-      !I_PROGRAM type STRING .
-  methods SET_SELECTIONS
-    importing
-      !IT_SEL type FMRPF_RSPARAMSL_255_T .
-  methods CONSTRUCTOR
-    importing
-      !I_JOB_NAME type BTCJOB .
-  methods GET_ERRORS
-    returning
-      value(R_ERRORS) type STRING_TABLE .
-  methods OPEN .
-  methods CLOSE .
-  methods SUBMIT
-    importing
-      !I_PROGRAM type SY-REPID .
+    TYPES ty_rsparamsl_255_t TYPE TABLE OF rsparamsl_255 WITH DEFAULT KEY.
+
+    METHODS start_job
+      IMPORTING
+        !i_program TYPE string .
+    METHODS set_selections
+      IMPORTING
+        !it_sel TYPE ty_rsparamsl_255_t .
+    METHODS constructor
+      IMPORTING
+        !i_job_name TYPE btcjob .
+    METHODS get_errors
+      RETURNING
+        VALUE(r_errors) TYPE string_table .
+    METHODS open .
+    METHODS close .
+    METHODS submit
+      IMPORTING
+        !i_program TYPE sy-repid .
 protected section.
-private section.
+PRIVATE SECTION.
 
-  data _JOB_NAME type BTCJOB .
-  data _JOB_COUNT type BTCJOBCNT .
-  data _SELECTIONS type FMRPF_RSPARAMSL_255_T .
-  data _ERRORS type STRING_TABLE .
+  DATA _job_name TYPE btcjob .
+  DATA _job_count TYPE btcjobcnt .
+  DATA _selections TYPE ty_rsparamsl_255_t  .
+  DATA _errors TYPE string_table .
 
-  methods _ADD_ERROR
-    importing
-      !I_ERR type STRING optional .
+  METHODS _add_error
+    IMPORTING
+      !i_err TYPE string OPTIONAL .
 ENDCLASS.
 
 
